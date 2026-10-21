@@ -3,7 +3,8 @@
 </p>
 
 <h1 align="center">Hot Corners</h1>
-<p align="center"><b>Every corner, a shortcut.</b><br>A Chrome extension that turns the four corners of every web page into the actions you use most.</p>
+<p align="center"><b>Every corner, a shortcut.</b><br>A free Chrome extension that turns the four corners of every web page into the actions you use most.</p>
+<p align="center"><a href="https://tahsinsakin.github.io/Hot-Corners/">Website</a> · <a href="#get-started">Install</a> · <a href="#frequently-asked-questions">FAQ</a> · <a href="https://tahsinsakin.github.io/Hot-Corners/privacy.html">Privacy</a></p>
 
 ---
 
@@ -44,7 +45,7 @@ A tool that fires by accident gets uninstalled by Friday. Hot Corners was design
 
 ## Your browsing stays yours
 
-Hot Corners collects nothing and sends nothing anywhere. There are no accounts, no analytics and no ads. Your settings live in your own Chrome profile, and tab previews stay in memory only until the session ends. The full [privacy policy](store/privacy.html) is short and in plain English.
+Hot Corners collects nothing and sends nothing anywhere. There are no accounts, no analytics and no ads. Your settings live in your own Chrome profile, and tab previews stay in memory only until the session ends. The full [privacy policy](https://tahsinsakin.github.io/Hot-Corners/privacy.html) is short and in plain English.
 
 ## Get started
 
@@ -63,6 +64,32 @@ A short welcome card opens with the defaults: the **top-left** corner opens the 
 - **Chrome keeps its own pages off-limits.** Extensions can't run on the New Tab page, Chrome's settings or the Web Store, so corners rest there.
 - **Previews appear as you browse.** A tab gets its preview the first time you look at it; until then it shows the site's icon.
 
+## Frequently asked questions
+
+**How do I add hot corners to Google Chrome?**  
+Install the free Hot Corners extension, then open its settings and pick an action for each of the four corners. After that, resting the pointer in a corner of any web page runs that action, such as showing all your tabs or switching back to your last tab.
+
+**Is there a Chrome extension that shows all my open tabs at once?**  
+Yes. Hot Corners has a tab overview that shows every tab from every Chrome window as a grid with a preview of each page. Open it from a corner or with Ctrl+Shift+Space, type to filter, and click or press Enter to switch.
+
+**How can I quickly switch back to the last tab I used in Chrome?**  
+With Hot Corners, set a corner to "Last used tab". By default it's the bottom-right corner: rest the pointer there and Chrome jumps back to the tab you were on before, even if it's far away in the tab bar.
+
+**Does Hot Corners work on Windows, macOS and Linux?**  
+It's built for the desktop version of Google Chrome (version 116 or later), which runs on Windows, macOS and Linux. Chrome doesn't allow extensions on its own pages, such as the New Tab page and Settings, so corners rest there.
+
+**Will it trigger by accident?**  
+You control that. Each corner can require Shift, Ctrl or Alt to be held, you can set how long the pointer must rest and how big a corner is, corners rest during full-screen video, and Ctrl+Shift+H turns everything off in one keystroke.
+
+**Can I turn it off for certain websites?**  
+Yes. Click the toolbar icon and switch it off for the current site, or add sites to the excluded list in settings. You can also pause it for 15 minutes, an hour, or until Chrome restarts.
+
+**Is Hot Corners free?**  
+Yes. Hot Corners is free to use, with no account and no ads.
+
+**Does Hot Corners collect my data?**  
+No. It collects nothing and sends nothing anywhere. Settings are stored in your Chrome profile, and tab previews stay in memory only until the browser session ends.
+
 ---
 
 ## For developers
@@ -73,6 +100,7 @@ A short welcome card opens with the defaults: the **top-left** corner opens the 
 |---|---|
 | `extension/` | The extension itself (Manifest V3, no dependencies, no build step). |
 | `store/` | Store images, the store listing text (`STORE-LISTING.md`) and the privacy policy page. |
+| `docs/` | The public website (GitHub Pages): landing page, FAQ and privacy policy. |
 | `tools/` | Icon and promo image generator, packaging script and logic tests. |
 
 ### Common tasks

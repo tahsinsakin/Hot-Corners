@@ -79,7 +79,7 @@ Run browser actions the user chooses (switching tabs, a tab overview, page and w
 - I do not use or transfer user data for purposes that are unrelated to my item's single purpose.
 - I do not use or transfer user data to determine creditworthiness or for lending purposes.
 
-**Privacy policy URL:** the published `store/privacy.html` page.
+**Privacy policy URL:** https://tahsinsakin.github.io/Hot-Corners/privacy.html (after GitHub Pages is turned on)
 
 ---
 

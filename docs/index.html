@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hot Corners: every corner of the page, a shortcut (Chrome extension)</title>
+  <meta name="description" content="Hot Corners is a free Chrome extension that turns the four corners of every web page into shortcuts: see all your tabs at once, jump back to the last tab, open a new tab and more. No data collected.">
+  <link rel="canonical" href="https://tahsinsakin.github.io/Hot-Corners/">
+  <link rel="icon" href="assets/favicon.png">
+  <meta name="theme-color" content="#14161d">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hot Corners: every corner, a shortcut">
+  <meta property="og:description" content="A free Chrome extension that turns the four corners of every web page into shortcuts.">
+  <meta property="og:url" content="https://tahsinsakin.github.io/Hot-Corners/">
+  <meta property="og:image" content="https://tahsinsakin.github.io/Hot-Corners/assets/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&display=swap">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Hot Corners",
+    "alternateName": "Hot Corners for Chrome",
+    "description": "A free Chrome extension that turns the four corners of every web page into shortcuts. Rest the pointer in a corner to open a tab overview with previews of every tab, jump back to the last used tab, open or close tabs, scroll, reload, or open a web address.",
+    "applicationCategory": "BrowserApplication",
+    "applicationSubCategory": "Productivity",
+    "operatingSystem": "Windows, macOS, Linux (Google Chrome desktop)",
+    "browserRequirements": "Google Chrome 116 or later",
+    "softwareVersion": "1.3.0",
+    "url": "https://tahsinsakin.github.io/Hot-Corners/",
+    "downloadUrl": "https://github.com/tahsinsakin/Hot-Corners",
+    "image": "https://tahsinsakin.github.io/Hot-Corners/assets/icon.png",
+    "screenshot": "https://tahsinsakin.github.io/Hot-Corners/assets/og.png",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Tahsin Sakin", "url": "https://github.com/tahsinsakin" },
+    "featureList": [
+      "Tab overview with live previews of every tab in every window",
+      "Jump to the last used tab",
+      "Next and previous tab, new tab, close tab, reopen closed tab, duplicate, pin, mute",
+      "Back, forward, reload, scroll to top or bottom",
+      "New window, minimize, full screen",
+      "Open a chosen web address from a corner",
+      "Corners that only work while Shift, Ctrl or Alt is held",
+      "Adjustable delay and corner size",
+      "Pauses during full-screen video",
+      "Turn everything off or on with Ctrl+Shift+H",
+      "Pause for 15 minutes, 1 hour or until Chrome restarts",
+      "Exclude individual sites",
+      "No data collection"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I add hot corners to Google Chrome?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Install the free Hot Corners extension, then open its settings and pick an action for each of the four corners. After that, resting the pointer in a corner of any web page runs that action, such as showing all your tabs or switching back to your last tab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a Chrome extension that shows all my open tabs at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Hot Corners has a tab overview that shows every tab from every Chrome window as a grid with a preview of each page. Open it from a corner or with Ctrl+Shift+Space, type to filter, and click or press Enter to switch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I quickly switch back to the last tab I used in Chrome?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With Hot Corners, set a corner to \"Last used tab\". By default it's the bottom-right corner: rest the pointer there and Chrome jumps back to the tab you were on before, even if it's far away in the tab bar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Hot Corners work on Windows, macOS and Linux?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's built for the desktop version of Google Chrome (version 116 or later), which runs on Windows, macOS and Linux. Chrome doesn't allow extensions on its own pages, such as the New Tab page and Settings, so corners rest there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will it trigger by accident?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You control that. Each corner can require Shift, Ctrl or Alt to be held, you can set how long the pointer must rest and how big a corner is, corners rest during full-screen video, and Ctrl+Shift+H turns everything off in one keystroke."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I turn it off for certain websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Click the toolbar icon and switch it off for the current site, or add sites to the excluded list in settings. You can also pause it for 15 minutes, an hour, or until Chrome restarts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Hot Corners free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Hot Corners is free to use, with no account and no ads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Hot Corners collect my data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It collects nothing and sends nothing anywhere. Settings are stored in your Chrome profile, and tab previews stay in memory only until the browser session ends."
+      }
+    }
+  ]
+}
+  </script>
+
+  <style>
+    /* Layout: dark product page. Hero with a live corner demo, then problem, actions,
+       safeguards, privacy, install steps and FAQ in one readable column. */
+    :root {
+      --bg: #14161d;
+      --bg-2: #1b1e27;
+      --card: #20232d;
+      --line: #2d313d;
+      --fg: #eef0f4;
+      --muted: #a3a9b6;
+      --flame: #ffb020;
+      --flame-hot: #ffde46;
+      --flame-ink: #1d1400;
+      --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+      color-scheme: dark;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #faf8f4; --bg-2: #f2efe8; --card: #ffffff; --line: #e5e0d6;
+        --fg: #1b1a17; --muted: #625c52; --flame: #e08600; --flame-hot: #ffb020;
+        color-scheme: light;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font: 18px/1.6 var(--body); -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--flame); }
+    :focus-visible { outline: 2px solid var(--flame); outline-offset: 3px; border-radius: 4px; }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+    p { margin: 0; }
+
+    .wrap {
+      width: 100%; max-width: 1080px; margin: 0 auto;
+      padding-left: max(20px, env(safe-area-inset-left, 0px));
+      padding-right: max(20px, env(safe-area-inset-right, 0px));
+    }
+    section { padding-block: 72px; }
+    section + section { border-top: 1px solid var(--line); }
+    .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--flame); }
+    .lede { color: var(--muted); font-size: 20px; max-width: 60ch; }
+    h2 { font-size: clamp(30px, 4.4vw, 44px); margin: 10px 0 18px; }
+
+    /* nav */
+    nav { padding-block: 18px; }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 19px; color: var(--fg); text-decoration: none; }
+    .brand img { width: 30px; height: 30px; }
+    nav .links { display: flex; gap: 22px; font-size: 16px; }
+    nav .links a { color: var(--muted); text-decoration: none; }
+    nav .links a:hover { color: var(--fg); }
+
+    /* hero */
+    .hero { padding-block: 40px 80px; border-top: 0; }
+    .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(44px, 7vw, 76px); font-weight: 800; }
+    .hero h1 span { color: var(--flame); }
+    .hero .lede { margin-top: 20px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 22px;
+      border-radius: 12px; font-weight: 600; font-size: 17px; text-decoration: none;
+      border: 1px solid var(--line); color: var(--fg); background: var(--card);
+    }
+    .btn.primary { background: var(--flame); color: var(--flame-ink); border-color: transparent; }
+    .btn:hover { filter: brightness(1.06); }
+    .fine { margin-top: 14px; font-size: 15px; color: var(--muted); }
+
+    /* live demo */
+    .demo { position: relative; padding: 34px; }
+    .demo-window {
+      position: relative; aspect-ratio: 16 / 11; border-radius: 16px; overflow: visible;
+      background: var(--bg-2); border: 1px solid var(--line);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+    }
+    .demo-tabs { display: flex; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    .demo-tabs i { display: block; height: 26px; width: 22%; border-radius: 8px; background: var(--card); }
+    .demo-tabs i:first-child { background: color-mix(in srgb, var(--flame) 18%, var(--card)); }
+    .demo-body { position: relative; padding: 22px; display: grid; gap: 12px; }
+    .demo-body b { display: block; height: 12px; border-radius: 6px; background: var(--card); }
+    .demo-body b:nth-child(1) { width: 60%; height: 20px; }
+    .demo-body b:nth-child(2) { width: 90%; }
+    .demo-body b:nth-child(3) { width: 82%; }
+    .demo-body b:nth-child(4) { width: 70%; }
+    .demo-label {
+      position: absolute; left: 50%; top: 58%; translate: -50% -50%;
+      padding: 10px 18px; border-radius: 999px; white-space: nowrap;
+      background: rgba(10, 11, 15, .88); color: #f3f4f7; font-weight: 600; font-size: 16px;
+      border: 1px solid rgba(255, 255, 255, .1); opacity: 0; transition: opacity .18s ease, scale .18s ease; scale: .96;
+    }
+    .demo-label.show { opacity: 1; scale: 1; }
+    .demo-hint { position: absolute; left: 0; right: 0; bottom: -2px; text-align: center; font-size: 14px; color: var(--muted); }
+    .hot {
+      position: absolute; width: 22%; height: 26%; z-index: 2; border: 0; padding: 0; background: transparent; cursor: pointer;
+    }
+    .hot.tl { left: -6%; top: -6%; } .hot.tr { right: -6%; top: -6%; }
+    .hot.bl { left: -6%; bottom: -6%; } .hot.br { right: -6%; bottom: -6%; }
+    .flame {
+      position: absolute; width: 34px; height: 49px; pointer-events: none;
+      transform-origin: 17px 35.7px; transition: filter .2s ease, opacity .2s ease; opacity: .55;
+    }
+    .flame.tl { left: -17px; top: -35.7px; transform: rotate(-45deg); }
+    .flame.tr { right: -17px; top: -35.7px; transform: rotate(45deg) scaleX(-1); }
+    .flame.bl { left: -17px; bottom: -13.3px; transform: rotate(-135deg); }
+    .flame.br { right: -17px; bottom: -13.3px; transform: rotate(135deg) scaleX(-1); }
+    .flame.lit { opacity: 1; filter: drop-shadow(0 0 12px rgba(255, 176, 32, .8)); }
+    @keyframes flicker { 0%, 100% { scale: 1; } 50% { scale: 1.06 .96; } }
+    .flame { animation: flicker 1.8s ease-in-out infinite; }
+    .flame.tr { animation-delay: -.6s; } .flame.bl { animation-delay: -1.2s; } .flame.br { animation-delay: -.3s; }
+
+    /* story */
+    .story p { font-size: 21px; max-width: 62ch; }
+    .story p + p { margin-top: 18px; }
+    .story strong { color: var(--fg); }
+    .story .muted { color: var(--muted); }
+
+    /* actions */
+    .groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 34px; }
+    .group { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+    .group h3 { font-size: 20px; margin-bottom: 10px; }
+    .group ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--muted); font-size: 16px; }
+
+    /* overview feature */
+    .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .feature img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+    .feature p + p { margin-top: 14px; }
+    kbd {
+      display: inline-block; padding: 1px 8px; border: 1px solid var(--line); border-bottom-width: 2px;
+      border-radius: 6px; background: var(--card); font: 600 15px/1.5 var(--body); color: var(--fg);
+    }
+
+    /* safeguards */
+    .guards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+    .guard { border-left: 3px solid var(--flame); padding: 4px 0 4px 18px; }
+    .guard h3 { font-size: 19px; margin-bottom: 6px; }
+    .guard p { color: var(--muted); font-size: 16.5px; }
+
+    /* privacy */
+    .privacy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+    .privacy div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+    .privacy b { display: block; font-family: var(--display); font-size: 20px; color: var(--flame); margin-bottom: 4px; }
+    .privacy span { color: var(--muted); font-size: 16px; }
+
+    /* install */
+    .steps { counter-reset: step; list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 14px; max-width: 720px; }
+    .steps li { counter-increment: step; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+    .steps li::before {
+      content: counter(step); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+      background: var(--flame); color: var(--flame-ink); font-weight: 700; font-family: var(--display);
+    }
+    .steps code { font-size: .9em; padding: 1px 6px; border-radius: 6px; background: var(--card); border: 1px solid var(--line); }
+
+    /* faq */
+    .faq { margin-top: 26px; display: grid; gap: 10px; max-width: 820px; }
+    .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 0 20px; }
+    .faq summary {
+      cursor: pointer; list-style: none; padding: 18px 0; font-weight: 600; font-size: 18.5px;
+      display: flex; justify-content: space-between; gap: 16px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--flame); font-size: 24px; line-height: 1; }
+    .faq details[open] summary::after { content: "–"; }
+    .faq .answer { padding: 0 0 18px; color: var(--muted); }
+
+    footer { padding-block: 40px 56px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    footer .closer { font-family: var(--display); font-size: 22px; color: var(--fg); }
+
+    @media (max-width: 900px) {
+      .hero .wrap, .feature { grid-template-columns: 1fr; gap: 36px; }
+      .groups { grid-template-columns: repeat(2, 1fr); }
+      .guards, .privacy { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      body { font-size: 17px; }
+      section { padding-block: 52px; }
+      nav .links { display: none; }
+      .groups { grid-template-columns: 1fr; }
+      .demo { padding: 26px 22px; }
+      .story p { font-size: 19px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flame { animation: none; }
+      .demo-label, .flame { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="fo" gradientUnits="userSpaceOnUse" x1="0" y1="0.34" x2="0" y2="-1">
+        <stop offset="0" stop-color="#FFDE46"/><stop offset="1" stop-color="#FF9600"/>
+      </linearGradient>
+      <linearGradient id="fi" gradientUnits="userSpaceOnUse" x1="0" y1="0.23" x2="0" y2="-0.3">
+        <stop offset="0" stop-color="#FFFCDE"/><stop offset="1" stop-color="#FFE45C"/>
+      </linearGradient>
+      <symbol id="flame" viewBox="-0.5 -1.05 1 1.45">
+        <path fill="url(#fo)" d="M0.06 -1 C0.18 -0.70 0.44 -0.50 0.42 -0.16 C0.40 0.16 0.21 0.34 0 0.34 C-0.23 0.34 -0.42 0.15 -0.42 -0.13 C-0.42 -0.37 -0.28 -0.48 -0.24 -0.66 C-0.13 -0.50 -0.09 -0.44 -0.05 -0.39 C-0.07 -0.63 -0.04 -0.83 0.06 -1 Z"/>
+        <path fill="url(#fi)" d="M0.03 -0.56 C0.13 -0.39 0.23 -0.25 0.22 -0.05 C0.21 0.14 0.11 0.23 0 0.23 C-0.12 0.23 -0.22 0.13 -0.22 -0.04 C-0.22 -0.23 -0.08 -0.35 0.03 -0.56 Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <nav aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="assets/icon.png" alt="" width="30" height="30">Hot Corners</a>
+      <div class="links">
+        <a href="#actions">Actions</a>
+        <a href="#install">Install</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/tahsinsakin/Hot-Corners">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">Free Chrome extension</p>
+          <h1>Every corner, <span>a&nbsp;shortcut.</span></h1>
+          <p class="lede">Hot Corners turns the four corners of every web page into the actions you reach for most. Rest the pointer in a corner and it happens: all your tabs spread out in front of you, you're back on the tab you just left, or a new one opens.</p>
+          <div class="cta">
+            <a class="btn primary" href="#install">Install Hot Corners</a>
+            <a class="btn" href="https://github.com/tahsinsakin/Hot-Corners">View on GitHub</a>
+          </div>
+          <p class="fine">Free · No account · Collects no data · Chrome on Windows, macOS and Linux</p>
+        </div>
+
+        <div class="demo" aria-label="Try it: move the pointer into a corner of the window">
+          <div class="demo-window" id="demo">
+            <div class="demo-tabs"><i></i><i></i><i></i></div>
+            <div class="demo-body"><b></b><b></b><b></b><b></b></div>
+            <div class="demo-label" id="demoLabel" role="status" aria-live="polite"></div>
+            <svg class="flame tl" aria-hidden="true"><use href="#flame"/></svg>
+            <svg class="flame tr" aria-hidden="true"><use href="#flame"/></svg>
+            <svg class="flame bl" aria-hidden="true"><use href="#flame"/></svg>
+            <svg class="flame br" aria-hidden="true"><use href="#flame"/></svg>
+            <button class="hot tl" data-corner="tl" data-label="Tab overview" aria-label="Top-left corner: tab overview"></button>
+            <button class="hot tr" data-corner="tr" data-label="New tab" aria-label="Top-right corner: new tab"></button>
+            <button class="hot bl" data-corner="bl" data-label="Scroll to top" aria-label="Bottom-left corner: scroll to top"></button>
+            <button class="hot br" data-corner="br" data-label="Last used tab" aria-label="Bottom-right corner: last used tab"></button>
+          </div>
+          <p class="demo-hint">Try it: rest your pointer on a corner.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="wrap">
+        <p class="eyebrow">Sound familiar?</p>
+        <h2>The tab you need is always in the middle.</h2>
+        <p>Twenty-six tabs open, each squeezed to a sliver with a tiny icon. You squint, click the wrong one, press Ctrl+Tab, overshoot, and go back. <strong>A few seconds every time, dozens of times a day.</strong></p>
+        <p>The fix isn't another toolbar button to aim at. Every page already has four spots that nothing else uses. <strong>Hot Corners turns them into shortcuts</strong> you can hit without looking, so your hands stay where they are and your attention stays on the work.</p>
+      </div>
+    </section>
+
+    <section id="actions">
+      <div class="wrap">
+        <p class="eyebrow">What a corner can do</p>
+        <h2>Give each corner the job you do most.</h2>
+        <p class="lede">About twenty actions, and you can change any corner whenever your habits change.</p>
+        <div class="groups">
+          <div class="group"><h3>Tabs</h3><ul><li>Tab overview</li><li>Last used tab</li><li>Next / previous tab</li><li>New tab</li><li>Close tab</li><li>Reopen closed tab</li><li>Duplicate, pin, mute</li></ul></div>
+          <div class="group"><h3>Page</h3><ul><li>Back</li><li>Forward</li><li>Reload</li><li>Scroll to top</li><li>Scroll to bottom</li></ul></div>
+          <div class="group"><h3>Window</h3><ul><li>New window</li><li>Minimize</li><li>Full screen</li></ul></div>
+          <div class="group"><h3>Your own</h3><ul><li>Open any web address you choose: your inbox, your calendar, today's to-do list</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap feature">
+        <div>
+          <p class="eyebrow">The tab overview</p>
+          <h2>See every tab at once.</h2>
+          <p class="lede">Every tab from every window, laid out as a grid with a preview of each page. You recognize tabs by how they look instead of hunting for titles.</p>
+          <p class="lede">Type to filter. Use the arrow keys and Enter. Close tabs right from the grid. Prefer the keyboard? Open it with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd>.</p>
+        </div>
+        <img src="assets/og.png" alt="A browser window showing a grid of tab previews with glowing corners" width="1400" height="560" loading="lazy">
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Built to stay out of your way</p>
+        <h2>It only fires when you mean it.</h2>
+        <p class="lede">A shortcut that goes off by accident is worse than no shortcut. Every setting below exists for that reason.</p>
+        <div class="guards">
+          <div class="guard"><h3>Hold a key, if you like</h3><p>Make any corner work only while Shift, Ctrl or Alt is held. Brush past it without the key and nothing happens.</p></div>
+          <div class="guard"><h3>Tune the trigger</h3><p>Set how long the pointer rests before the action runs, and how big a corner is.</p></div>
+          <div class="guard"><h3>Quiet during movies</h3><p>When a video or game goes full screen, the corners rest until you're done.</p></div>
+          <div class="guard"><h3>One key to switch it off</h3><p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> turns everything off and back on. The toolbar icon goes grey while it's off.</p></div>
+          <div class="guard"><h3>Pause and forget</h3><p>Pause for 15 minutes, an hour or until Chrome restarts. It comes back on by itself.</p></div>
+          <div class="guard"><h3>Leave some sites alone</h3><p>Exclude any site with one click, so your design tool or game keeps its corners.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Privacy</p>
+        <h2>Your browsing stays yours.</h2>
+        <div class="privacy">
+          <div><b>Nothing collected</b><span>No personal data, browsing history or page content.</span></div>
+          <div><b>No servers</b><span>No accounts, analytics or ads. Nothing is sent anywhere.</span></div>
+          <div><b>On your device</b><span>Settings live in your Chrome profile; previews stay in memory for the session.</span></div>
+        </div>
+        <p class="fine">Read the full <a href="privacy.html">privacy policy</a>. It's short.</p>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="wrap">
+        <p class="eyebrow">Get started</p>
+        <h2>Install it in about a minute.</h2>
+        <p class="lede">Hot Corners is coming to the Chrome Web Store. Until then, you can install it straight from GitHub:</p>
+        <ol class="steps">
+          <li><span>Download the code from <a href="https://github.com/tahsinsakin/Hot-Corners">GitHub</a> (<b>Code → Download ZIP</b>) and unzip it.</span></li>
+          <li><span>Open <code>chrome://extensions</code> and turn on <b>Developer mode</b> in the top-right corner.</span></li>
+          <li><span>Click <b>Load unpacked</b> and choose the <code>extension</code> folder.</span></li>
+          <li><span>Pin Hot Corners from Chrome's puzzle-piece menu. The top-left corner now opens your tab overview, and the bottom-right corner takes you back to your last tab.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <p class="eyebrow">Questions</p>
+        <h2>Frequently asked questions</h2>
+        <div class="faq" id="faqList">
+          <details><summary>How do I add hot corners to Google Chrome?</summary>
+            <div class="answer">Install the free Hot Corners extension, then open its settings and pick an action for each of the four corners. After that, resting the pointer in a corner of any web page runs that action, such as showing all your tabs or switching back to your last tab.</div></details>
+          <details><summary>Is there a Chrome extension that shows all my open tabs at once?</summary>
+            <div class="answer">Yes. Hot Corners has a tab overview that shows every tab from every Chrome window as a grid with a preview of each page. Open it from a corner or with Ctrl+Shift+Space, type to filter, and click or press Enter to switch.</div></details>
+          <details><summary>How can I quickly switch back to the last tab I used in Chrome?</summary>
+            <div class="answer">With Hot Corners, set a corner to "Last used tab". By default it's the bottom-right corner: rest the pointer there and Chrome jumps back to the tab you were on before, even if it's far away in the tab bar.</div></details>
+          <details><summary>Does Hot Corners work on Windows, macOS and Linux?</summary>
+            <div class="answer">It's built for the desktop version of Google Chrome (version 116 or later), which runs on Windows, macOS and Linux. Chrome doesn't allow extensions on its own pages, such as the New Tab page and Settings, so corners rest there.</div></details>
+          <details><summary>Will it trigger by accident?</summary>
+            <div class="answer">You control that. Each corner can require Shift, Ctrl or Alt to be held, you can set how long the pointer must rest and how big a corner is, corners rest during full-screen video, and Ctrl+Shift+H turns everything off in one keystroke.</div></details>
+          <details><summary>Can I turn it off for certain websites?</summary>
+            <div class="answer">Yes. Click the toolbar icon and switch it off for the current site, or add sites to the excluded list in settings. You can also pause it for 15 minutes, an hour, or until Chrome restarts.</div></details>
+          <details><summary>Is Hot Corners free?</summary>
+            <div class="answer">Yes. Hot Corners is free to use, with no account and no ads.</div></details>
+          <details><summary>Does Hot Corners collect my data?</summary>
+            <div class="answer">No. It collects nothing and sends nothing anywhere. Settings are stored in your Chrome profile, and tab previews stay in memory only until the browser session ends.</div></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="closer">Four corners. Zero clicks.</span>
+      <span><a href="privacy.html">Privacy policy</a> · <a href="https://github.com/tahsinsakin/Hot-Corners">GitHub</a> · Made by Tahsin Sakin</span>
+    </div>
+  </footer>
+
+  <script>
+    // Live corner demo: rest on a corner for a moment and its action lights up.
+    (function () {
+      var label = document.getElementById('demoLabel');
+      var timer = 0;
+      var hide = 0;
+      function light(btn) {
+        var key = btn.getAttribute('data-corner');
+        document.querySelectorAll('.flame').forEach(function (f) { f.classList.toggle('lit', f.classList.contains(key)); });
+        label.textContent = btn.getAttribute('data-label');
+        label.classList.add('show');
+        clearTimeout(hide);
+        hide = setTimeout(function () {
+          label.classList.remove('show');
+          document.querySelectorAll('.flame').forEach(function (f) { f.classList.remove('lit'); });
+        }, 1600);
+      }
+      document.querySelectorAll('.hot').forEach(function (btn) {
+        btn.addEventListener('mouseenter', function () { clearTimeout(timer); timer = setTimeout(function () { light(btn); }, 250); });
+        btn.addEventListener('mouseleave', function () { clearTimeout(timer); });
+        btn.addEventListener('click', function () { light(btn); });
+        btn.addEventListener('focus', function () { light(btn); });
+      });
+    })();
+  </script>
+</body>
+</html>

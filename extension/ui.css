@@ -1,0 +1,153 @@
+/* Shared by popup.html and options.html */
+
+:root {
+  color-scheme: light dark;
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --fg: #17181c;
+  --muted: #676c78;
+  --line: #e2e3e8;
+  --field: #ffffff;
+  --screen: #eef0f3;
+  --screen-line: #cfd2d9;
+  --accent: #ffb020;
+  --accent-ink: #1d1400;
+  --accent-text: #9a5700;
+  --danger: #c93232;
+  --off: #c7cad2;
+  --focus: #f29d00;
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111216;
+    --card: #1a1c22;
+    --fg: #eceef2;
+    --muted: #9ba1ad;
+    --line: #2b2e36;
+    --field: #22252c;
+    --screen: #15171c;
+    --screen-line: #3a3e48;
+    --accent-text: #ffc457;
+    --danger: #ff6b6b;
+    --off: #41454f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.45 "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+button, select, input { font: inherit; color: inherit; }
+
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* ---------- switch ---------- */
+.switch { position: relative; display: inline-block; flex: none; width: 40px; height: 22px; cursor: pointer; }
+.switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.switch span { position: absolute; inset: 0; border-radius: 11px; background: var(--off); transition: background .15s ease; }
+.switch span::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform .15s ease;
+}
+.switch input:checked + span { background: var(--accent); }
+.switch input:checked + span::after { transform: translateX(18px); }
+.switch input:focus-visible + span { outline: 2px solid var(--focus); outline-offset: 2px; }
+.switch.small { width: 34px; height: 20px; }
+.switch.small span::after { width: 14px; height: 14px; }
+.switch.small input:checked + span::after { transform: translateX(14px); }
+
+/* ---------- fields ---------- */
+select, .field {
+  width: 100%; height: 32px; padding: 0 10px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--field);
+  font-size: 12.5px;
+}
+select { cursor: pointer; padding-right: 6px; }
+.field::placeholder { color: var(--muted); opacity: .8; }
+select:hover, .field:hover { border-color: var(--screen-line); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 32px; padding: 0 14px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--field); font-size: 12.5px; font-weight: 600;
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--screen-line); }
+.btn.primary { background: var(--accent); border-color: transparent; color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.05); }
+.btn.ghost { border-color: transparent; background: transparent; color: var(--accent-text); padding: 0 8px; }
+.btn.danger { color: var(--danger); }
+.btn:disabled { opacity: .5; cursor: default; }
+
+input[type="range"] { width: 100%; margin: 4px 0 0; accent-color: var(--accent); }
+input[type="checkbox"]:not(.switch input) { accent-color: var(--accent); }
+
+/* ---------- the "screen" corner editor ---------- */
+.stage { padding: 26px; }
+.screen {
+  --f: 26px; /* flame width; height is 1.45x */
+  position: relative;
+  border: 2px solid var(--screen-line); border-radius: 14px; background: var(--screen);
+}
+.corner { position: absolute; display: flex; flex-direction: column; gap: 6px; width: calc(50% - 26px); }
+.corner.tl { top: 14px; left: 14px; }
+.corner.tr { top: 14px; right: 14px; }
+.corner.bl { bottom: 14px; left: 14px; flex-direction: column-reverse; }
+.corner.br { bottom: 14px; right: 14px; flex-direction: column-reverse; }
+.corner-name { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.corner.tr .corner-name, .corner.br .corner-name { text-align: right; }
+.chip {
+  align-self: flex-start; padding: 1px 7px; border-radius: 6px; font-size: 11px;
+  background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent-text);
+}
+.corner.tr .chip, .corner.br .chip { align-self: flex-end; }
+
+.screen-center {
+  position: absolute; inset: 0; display: grid; place-content: center; gap: 4px;
+  text-align: center; pointer-events: none; color: var(--muted); font-size: 12px;
+}
+
+.flame {
+  position: absolute; width: var(--f); height: calc(var(--f) * 1.45);
+  transform-origin: calc(var(--f) * .5) calc(var(--f) * 1.05);
+  pointer-events: none; overflow: visible;
+  filter: grayscale(1); opacity: .28;
+  transition: opacity .2s ease, filter .2s ease;
+}
+.flame.on { filter: drop-shadow(0 0 6px rgba(255, 176, 32, .55)); opacity: 1; }
+.flame.tl { left: calc(var(--f) * -.5 - 2px); top: calc(var(--f) * -1.05 - 2px); transform: rotate(-45deg); }
+.flame.tr { left: calc(100% - var(--f) * .5 + 2px); top: calc(var(--f) * -1.05 - 2px); transform: rotate(45deg) scaleX(-1); }
+.flame.bl { left: calc(var(--f) * -.5 - 2px); top: calc(100% - var(--f) * 1.05 + 2px); transform: rotate(-135deg); }
+.flame.br { left: calc(100% - var(--f) * .5 + 2px); top: calc(100% - var(--f) * 1.05 + 2px); transform: rotate(135deg) scaleX(-1); }
+
+@keyframes flicker { 0%, 100% { scale: 1; } 50% { scale: 1.06 .97; } }
+.flame.on { animation: flicker 1.6s ease-in-out infinite; }
+.flame.tr.on, .flame.br.on { animation-delay: -.5s; }
+.flame.bl.on { animation-delay: -1.1s; }
+
+/* ---------- toast ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 18px; translate: -50% 12px;
+  padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 600;
+  background: var(--fg); color: var(--bg); opacity: 0; pointer-events: none;
+  transition: opacity .18s ease, translate .18s ease;
+}
+.toast.show { opacity: 1; translate: -50% 0; }
+
+body.off .stage, body.off .needs-on { opacity: .45; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+[hidden] { display: none !important; }

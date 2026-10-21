@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hot Corners · Ayarlar</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <img src="icons/icon128.png" alt="" width="64" height="64">
+      <div class="hero-text">
+        <h1>Hot Corners</h1>
+        <p>Fareyi sayfanın bir köşesine götür, o köşeye atadığın görev çalışsın.</p>
+      </div>
+      <div class="master">
+        <div class="master-text">
+          <span id="status">Açık</span>
+          <button class="btn ghost" id="resume" type="button" hidden>Devam et</button>
+        </div>
+        <label class="switch" title="Hot Corners'ı aç / kapat">
+          <input type="checkbox" id="enabled" aria-label="Hot Corners'ı aç / kapat">
+          <span></span>
+        </label>
+      </div>
+    </header>
+
+    <section class="card welcome" id="welcome" hidden aria-labelledby="welcomeTitle">
+      <div class="welcome-text">
+        <h2 id="welcomeTitle">Hot Corners kuruldu</h2>
+        <p>Hemen denemek için fareyi bu sayfanın sol üst köşesine götür: tüm sekmelerin açılır.</p>
+        <ul class="tips">
+          <li><b>Sol üst köşe</b> sekme görünümünü açar, <b>sağ alt köşe</b> son kullandığın sekmeye döner. Aşağıdan değiştirebilirsin.</li>
+          <li><span id="welcomeToggle"></span> ile tamamen kapatıp açabilirsin. Araç çubuğundaki ikon kapalıyken gri görünür.</li>
+          <li>İkona <b>sağ tıklayarak</b> 15 dakika ya da 1 saat duraklatabilirsin. Süre bitince kendiliğinden açılır.</li>
+          <li>İkonu her an görmek için Chrome'un yap-boz simgesinden Hot Corners'ı sabitle.</li>
+        </ul>
+      </div>
+      <button class="btn primary" id="welcomeDone" type="button">Anladım</button>
+    </section>
+
+    <section class="card" aria-labelledby="cornersTitle">
+      <div class="card-head">
+        <h2 id="cornersTitle">Köşeler</h2>
+        <p>Her köşeye bir görev seç. İstersen bir tuş şartı ekle: o köşe yalnızca tuş basılıyken çalışır,
+          böylece fare yanlışlıkla köşeye kaçtığında hiçbir şey olmaz.</p>
+      </div>
+      <div class="stage">
+        <div class="screen" id="screen">
+          <div class="screen-center">
+            <strong>Sayfa alanı</strong>
+            <span>Köşeler, sekme çubuğunun altındaki sayfanın köşeleridir.<br>
+              F11 ile tam ekranda gerçek ekran köşeleri gibi çalışır.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card needs-on" aria-labelledby="behaviourTitle">
+      <div class="card-head">
+        <h2 id="behaviourTitle">Davranış</h2>
+      </div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-text">
+            <label for="delay">Bekleme süresi</label>
+            <p>Görev çalışmadan önce imlecin köşede durması gereken süre.</p>
+          </div>
+          <div class="row-control">
+            <input type="range" id="delay" min="0" max="1000" step="50">
+            <output id="delayOut" for="delay"></output>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <label for="size">Köşe alanı</label>
+            <p>Köşenin ne kadar büyük kabul edileceği. Küçük değer daha az yanlış tetikleme demek.</p>
+          </div>
+          <div class="row-control">
+            <input type="range" id="size" min="2" max="30" step="1">
+            <output id="sizeOut" for="size"></output>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <label for="feedback">Köşede ışık göster</label>
+            <p>Görev çalıştığında köşede kısa bir parıltı belirir.</p>
+          </div>
+          <label class="switch small"><input type="checkbox" id="feedback"><span></span></label>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <label for="ignoreFullscreen">Tam ekran videoda devre dışı</label>
+            <p>Bir sayfa tam ekrana geçtiğinde (video, oyun) köşeler çalışmaz.</p>
+          </div>
+          <label class="switch small"><input type="checkbox" id="ignoreFullscreen"><span></span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="shortcutTitle">
+      <div class="card-head">
+        <h2 id="shortcutTitle">Klavye kısayolları</h2>
+      </div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-text">
+            <span class="label">Hot Corners'ı aç / kapat</span>
+            <p>Her şeyi tek tuşla durdurur; tekrar basınca geri açar.</p>
+          </div>
+          <span class="keys" id="keyToggle"></span>
+        </div>
+        <div class="row">
+          <div class="row-text">
+            <span class="label">Sekme görünümünü aç / kapat</span>
+            <p>Köşeye gitmeden tüm sekmeleri gösterir.</p>
+          </div>
+          <span class="keys" id="keyOverview"></span>
+        </div>
+        <div class="row">
+          <p class="hint">Kısayolları Chrome'un eklenti kısayolları sayfasından değiştirebilir veya kaldırabilirsin.</p>
+          <button class="btn" id="changeShortcut" type="button">Kısayolları değiştir</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card needs-on" aria-labelledby="sitesTitle">
+      <div class="card-head">
+        <h2 id="sitesTitle">Devre dışı siteler</h2>
+        <p>Bu sitelerde köşeler hiç çalışmaz. Araç çubuğundaki ikondan da tek tıkla ekleyebilirsin.</p>
+      </div>
+      <form class="add-site" id="addSite" novalidate>
+        <input class="field" id="siteInput" type="text" placeholder="ornek.com veya https://ornek.com/sayfa"
+               spellcheck="false" autocomplete="off" aria-label="Site adresi">
+        <button class="btn primary" type="submit">Ekle</button>
+      </form>
+      <p class="error" id="siteError" role="alert" hidden></p>
+      <ul class="sites" id="sites"></ul>
+      <p class="empty" id="sitesEmpty">Henüz site eklenmedi.</p>
+    </section>
+
+    <footer class="foot">
+      <span id="version"></span>
+      <button class="btn ghost danger" id="reset" type="button">Varsayılanlara dön</button>
+    </footer>
+  </main>
+  <script src="shared.js"></script>
+  <script src="ui.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

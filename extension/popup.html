@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Hot Corners</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <header class="head">
+      <img src="icons/icon48.png" alt="" width="30" height="30" id="logo">
+      <div class="brand">
+        <h1>Hot Corners</h1>
+        <p id="status">Açık</p>
+      </div>
+      <label class="switch" title="Hot Corners'ı aç / kapat">
+        <input type="checkbox" id="enabled" aria-label="Hot Corners'ı aç / kapat">
+        <span></span>
+      </label>
+    </header>
+
+    <div class="row-box pause" id="pauseRow">
+      <div class="row-text">
+        <strong>Duraklat</strong>
+        <span id="pauseState">Bir süreliğine durdur, sonra kendiliğinden açılsın</span>
+      </div>
+      <div class="seg" id="pauseButtons" role="group" aria-label="Duraklatma süresi">
+        <button type="button" data-minutes="15">15 dk</button>
+        <button type="button" data-minutes="60">1 sa</button>
+        <button type="button" data-minutes="-1" title="Chrome yeniden başlayana kadar">Oturum</button>
+      </div>
+      <button class="btn primary" id="resume" type="button" hidden>Devam et</button>
+    </div>
+
+    <div class="row-box site needs-on" id="siteRow" hidden>
+      <div class="row-text">
+        <strong id="siteHost"></strong>
+        <span id="siteState">Bu sitede çalışıyor</span>
+      </div>
+      <label class="switch small">
+        <input type="checkbox" id="siteOn" aria-label="Bu sitede çalışsın">
+        <span></span>
+      </label>
+    </div>
+
+    <div class="stage">
+      <section class="screen" id="screen" aria-label="Köşe görevleri">
+        <div class="screen-center">Köşeye götür,<br>görev çalışsın</div>
+      </section>
+    </div>
+
+    <footer class="foot">
+      <dl class="keys">
+        <div><dt>Aç / kapat</dt><dd id="keyToggle"></dd></div>
+        <div><dt>Sekme görünümü</dt><dd id="keyOverview"></dd></div>
+      </dl>
+      <button class="btn" id="more" type="button">Tüm ayarlar</button>
+    </footer>
+  </main>
+  <script src="shared.js"></script>
+  <script src="ui.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

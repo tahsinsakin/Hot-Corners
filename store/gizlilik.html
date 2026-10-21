@@ -1,0 +1,111 @@
+<title>Hot Corners Gizlilik Politikası</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  /* Layout: one readable column, a summary strip of what is (not) stored, then the policy in TR and EN. */
+  :root {
+    --bg: #faf8f4;
+    --surface: #ffffff;
+    --fg: #1c1a17;
+    --muted: #6d665c;
+    --line: #e8e2d8;
+    --flame: #e88a00;
+    --flame-soft: #fff2d6;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #13120f; --surface: #1c1a16; --fg: #eeeae3; --muted: #a59d90;
+      --line: #2f2b25; --flame: #ffb43a; --flame-soft: #2e2412; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #13120f; --surface: #1c1a16; --fg: #eeeae3; --muted: #a59d90;
+    --line: #2f2b25; --flame: #ffb43a; --flame-soft: #2e2412; color-scheme: dark;
+  }
+
+  body { background: var(--bg); color: var(--fg); font: 17px/1.6 var(--body); }
+  .wrap {
+    max-width: 720px; margin: 0 auto;
+    padding-block: 56px 72px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: flex; flex-direction: column; gap: 36px;
+  }
+  header { display: flex; align-items: center; gap: 18px; }
+  header img { width: 64px; height: 64px; flex: none; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(28px, 5vw, 38px); line-height: 1.1; letter-spacing: -.01em; }
+  .meta { color: var(--muted); font-size: 14px; margin: 4px 0 0; }
+
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .fact {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 2px;
+  }
+  .fact b { font-family: var(--display); font-size: 18px; color: var(--flame); }
+  .fact span { color: var(--muted); font-size: 14.5px; line-height: 1.45; }
+
+  section { display: flex; flex-direction: column; gap: 12px; }
+  section > h2 { font-size: 24px; }
+  h3 { font-size: 17px; margin-top: 10px; }
+  p, ul { margin: 0; max-width: 65ch; }
+  ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  code { font-size: .88em; padding: 1px 5px; border-radius: 5px; background: var(--flame-soft); }
+  .lang {
+    align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 0; }
+  a { color: var(--flame); }
+</style>
+
+<div class="wrap">
+  <header>
+    <img alt="" src="data:image/png;base64,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c3JUrn3JqXroZCVIt29xPPC44y0XC9euUdYs9yxfUrB8QokwfOWOiG27hE+/rcVZEzkYx+olKd99KCKK54K0ihixJngqCMPw/sDaq3tFjjWQOaERK+9e3WJqGv7qhw1uurfGwY4hECU2noeegJu/EfDQk4bd05DmWoq4AsplpWUvfCD1PCmsvM4tYINzSscrcQStHnzrB8qGu2HJqOGilQHrLs+JjSfrwfceDLh72zC/dnmXD79hhnevbvPlO5pkVSriC/VxHJgwCDbL2rVvePf+Q9MbWq1ZDawxuROWDBe85ewet29PeGbK0IghCpS8gFoInUxop1CPldBQPe8Ahesb/jwUwslroQ7IEpTAlnmNoOQeOqnQiKEeKd28FOFnRTmGZWOeN63qsXFbwu6ZoMwBC++Gmk27YGLsg/LWt7514c6n990+NT2zWvHOCtarMtszNBOlFnicSp+BxCtYUyamXisy0x/LW16Nx57nlx5QZttQZcnlsjdVrWUErCjdwtDqCUOJx4jgFCeIGR0ZeXLp4iVX2+3bt7eXnr5icZ4Xk3mWORArQCMutdK5E7wfeLK6omudLz+PoC9fFWBeqHaTI2zt265aitILLwRSelZJzQvqvYvjxA41mn957713fNsAMtRo3FhL4l1gbHmNUj/s9LmvC9HneX3Ic39+NTuGx7LrWLaXYyy10nPccpDUkv21WvMvQcoXC9x55x0Hz1hxlnfev7PX6zpjjJlzl1+4dyy8xNpOhMI512g07dBw8w8f2HzntycnJwO7c+dOD9irr/yv984c3rymKIrVWZZl1lqL8v/BIYgYXOHyOEnC0ZHh7//r96z85KZNW9m5c6efi2eATk5OLtp3sPW9gwenLsmzNLdBEP7CvgvnuPERnHNFEAbBxNj4oxNj4++4666NT1WY+D754ScnJ+2mTZv2jA0Pv398fGxLnCRhUeSuz6f9kp6a54WLwiiYGB/fOjYy9N677tr41OTkZNCnAY4OMBZwV175jtOmZg58debw7L9st9uoam6MMSJi+8zeL+5yAlX13nsnENYbTUaGh29Zdvr4R2+99dbdfQwGATkqYq2zTz313dZvfeLsv33q6WhWrD0f1dHCOeOcc6oVPPO0qZz6URhUtcLFq4ixcRLboeHhPcPDjT980zUTn77pplunYZ2Fre54khbTLwevvPLN50wdPvyRbi/9V2kvPTfPC3xVDZdPE576+IiUCtwgsARBSBRH2xq12v8eHRn62p133rZ1YN/3vJisbvBVVZOT71g20556Xdrz12ZZurZwxQrv/RDqg1MXJAUxhTG2FVj7VBhGm8PI3j5UH/pRFYh/7msC/x9+xHoxk8RTEgAAAABJRU5ErkJggg==">
+    <div>
+      <h1>Hot Corners Gizlilik Politikası</h1>
+      <p class="meta">Chrome eklentisi · Son güncelleme: 21 Ekim 2026</p>
+    </div>
+  </header>
+
+  <div class="summary" aria-label="Özet">
+    <div class="fact"><b>Veri toplanmaz</b><span>Hiçbir kişisel veri, gezinti geçmişi veya içerik toplanmaz.</span></div>
+    <div class="fact"><b>Sunucu yok</b><span>Eklenti hiçbir sunucuya veri göndermez; analiz veya reklam aracı içermez.</span></div>
+    <div class="fact"><b>Yalnızca cihazında</b><span>Ayarlar Chrome'da, sekme önizlemeleri oturum boyunca bellekte kalır.</span></div>
+  </div>
+
+  <section lang="tr">
+    <span class="lang">Türkçe</span>
+    <h2>Eklentinin işlediği bilgiler</h2>
+    <p>Hot Corners, fareyi sayfanın köşelerine götürdüğünde senin seçtiğin tarayıcı görevlerini çalıştırır. Bunu yapmak için aşağıdaki bilgileri yalnızca kendi tarayıcında işler:</p>
+    <ul>
+      <li><strong>Ayarların:</strong> köşelere atadığın görevler, bekleme süresi, köşe alanı ve devre dışı bıraktığın siteler. Bunlar <code>chrome.storage.sync</code> ile saklanır; Chrome eşitleme açıksa Google hesabın üzerinden kendi cihazların arasında eşitlenir. Bu eşitleme Chrome'un kendi özelliğidir, eklenti bu verilere başka bir yerden erişmez. Duraklatma durumu ise yalnızca bu cihazda <code>chrome.storage.local</code> içinde tutulur.</li>
+      <li><strong>Fare konumu:</strong> imlecin bir köşede olup olmadığını anlamak için sayfa içinde anlık olarak kontrol edilir. Kaydedilmez.</li>
+      <li><strong>Sekme başlıkları ve adresleri:</strong> sekme görünümünü gösterirken ve sekmeler arasında geçerken kullanılır. Kaydedilmez.</li>
+      <li><strong>Sekme önizlemeleri:</strong> sekme görünümündeki küçük resimler için görünür sekmenin ekran görüntüsü alınıp küçültülür ve <code>chrome.storage.session</code> içinde tutulur. Bu alan yalnızca bellekte yaşar; tarayıcı kapanınca ve sekme kapatılınca silinir.</li>
+    </ul>
+    <h3>Paylaşım</h3>
+    <p>Bu bilgilerin hiçbiri eklentinin geliştiricisine veya üçüncü taraflara gönderilmez, satılmaz ya da aktarılmaz. Eklenti uzaktan kod yüklemez ve ağ isteği yapmaz.</p>
+    <h3>Kontrol sende</h3>
+    <p>Eklentiyi istediğin zaman kapatabilir, belirli sitelerde devre dışı bırakabilir veya kaldırabilirsin. Eklentiyi kaldırdığında ayarları da silinir.</p>
+  </section>
+
+  <hr>
+
+  <section lang="en">
+    <span class="lang">English</span>
+    <h2>Privacy policy</h2>
+    <p>Hot Corners runs browser actions you choose when the pointer reaches a corner of the page. It does not collect, transmit, sell or share any personal data, and it contains no analytics, ads or remote code.</p>
+    <ul>
+      <li><strong>Settings</strong> (corner actions, delay, corner size, excluded sites) are stored with <code>chrome.storage.sync</code> and, if Chrome Sync is on, synced by Chrome between your own devices. The pause state stays on this device in <code>chrome.storage.local</code>.</li>
+      <li><strong>Pointer position</strong> is checked in the page to detect corners and is never stored.</li>
+      <li><strong>Tab titles and URLs</strong> are read to show the tab overview and to switch tabs, and are never stored.</li>
+      <li><strong>Tab previews</strong> are small screenshots of the visible tab kept in <code>chrome.storage.session</code>, which lives in memory only and is cleared when the tab or the browser closes.</li>
+    </ul>
+    <p>Uninstalling the extension removes its settings.</p>
+  </section>
+</div>

@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hot Corners · Ayarlar</title>
+  <title>Hot Corners · Settings</title>
   <link rel="icon" href="icons/icon32.png">
   <link rel="stylesheet" href="ui.css">
   <link rel="stylesheet" href="options.css">
@@ -14,15 +14,15 @@
       <img src="icons/icon128.png" alt="" width="64" height="64">
       <div class="hero-text">
         <h1>Hot Corners</h1>
-        <p>Fareyi sayfanın bir köşesine götür, o köşeye atadığın görev çalışsın.</p>
+        <p>Rest the pointer in a corner of the page and the action you picked for it runs.</p>
       </div>
       <div class="master">
         <div class="master-text">
-          <span id="status">Açık</span>
-          <button class="btn ghost" id="resume" type="button" hidden>Devam et</button>
+          <span id="status">On</span>
+          <button class="btn ghost" id="resume" type="button" hidden>Resume</button>
         </div>
-        <label class="switch" title="Hot Corners'ı aç / kapat">
-          <input type="checkbox" id="enabled" aria-label="Hot Corners'ı aç / kapat">
+        <label class="switch" title="Turn Hot Corners on or off">
+          <input type="checkbox" id="enabled" aria-label="Turn Hot Corners on or off">
           <span></span>
         </label>
       </div>
@@ -30,30 +30,30 @@
 
     <section class="card welcome" id="welcome" hidden aria-labelledby="welcomeTitle">
       <div class="welcome-text">
-        <h2 id="welcomeTitle">Hot Corners kuruldu</h2>
-        <p>Hemen denemek için fareyi bu sayfanın sol üst köşesine götür: tüm sekmelerin açılır.</p>
+        <h2 id="welcomeTitle">Hot Corners is ready</h2>
+        <p>Try it now: move the pointer to the top-left corner of this page to see all your tabs.</p>
         <ul class="tips">
-          <li><b>Sol üst köşe</b> sekme görünümünü açar, <b>sağ alt köşe</b> son kullandığın sekmeye döner. Aşağıdan değiştirebilirsin.</li>
-          <li><span id="welcomeToggle"></span> ile tamamen kapatıp açabilirsin. Araç çubuğundaki ikon kapalıyken gri görünür.</li>
-          <li>İkona <b>sağ tıklayarak</b> 15 dakika ya da 1 saat duraklatabilirsin. Süre bitince kendiliğinden açılır.</li>
-          <li>İkonu her an görmek için Chrome'un yap-boz simgesinden Hot Corners'ı sabitle.</li>
+          <li>The <b>top-left corner</b> opens the tab overview and the <b>bottom-right corner</b> jumps back to your last tab. Change them below.</li>
+          <li>Turn everything off or on with <span id="welcomeToggle"></span>. The toolbar icon turns grey while it's off.</li>
+          <li><b>Right-click</b> the toolbar icon to pause for 15 minutes or an hour. It comes back on by itself.</li>
+          <li>Pin Hot Corners from Chrome's puzzle-piece menu to keep the icon in view.</li>
         </ul>
       </div>
-      <button class="btn primary" id="welcomeDone" type="button">Anladım</button>
+      <button class="btn primary" id="welcomeDone" type="button">Got it</button>
     </section>
 
     <section class="card" aria-labelledby="cornersTitle">
       <div class="card-head">
-        <h2 id="cornersTitle">Köşeler</h2>
-        <p>Her köşeye bir görev seç. İstersen bir tuş şartı ekle: o köşe yalnızca tuş basılıyken çalışır,
-          böylece fare yanlışlıkla köşeye kaçtığında hiçbir şey olmaz.</p>
+        <h2 id="cornersTitle">Corners</h2>
+        <p>Pick an action for each corner. Add a key to hold if you like: that corner then works only while
+          the key is down, so a stray pointer never sets it off.</p>
       </div>
       <div class="stage">
         <div class="screen" id="screen">
           <div class="screen-center">
-            <strong>Sayfa alanı</strong>
-            <span>Köşeler, sekme çubuğunun altındaki sayfanın köşeleridir.<br>
-              F11 ile tam ekranda gerçek ekran köşeleri gibi çalışır.</span>
+            <strong>Page area</strong>
+            <span>Corners are the corners of the page below the tab bar.<br>
+              In full screen (F11) they match the corners of your screen.</span>
           </div>
         </div>
       </div>
@@ -61,13 +61,13 @@
 
     <section class="card needs-on" aria-labelledby="behaviourTitle">
       <div class="card-head">
-        <h2 id="behaviourTitle">Davranış</h2>
+        <h2 id="behaviourTitle">Behavior</h2>
       </div>
       <div class="rows">
         <div class="row">
           <div class="row-text">
-            <label for="delay">Bekleme süresi</label>
-            <p>Görev çalışmadan önce imlecin köşede durması gereken süre.</p>
+            <label for="delay">Delay</label>
+            <p>How long the pointer rests in a corner before the action runs.</p>
           </div>
           <div class="row-control">
             <input type="range" id="delay" min="0" max="1000" step="50">
@@ -76,8 +76,8 @@
         </div>
         <div class="row">
           <div class="row-text">
-            <label for="size">Köşe alanı</label>
-            <p>Köşenin ne kadar büyük kabul edileceği. Küçük değer daha az yanlış tetikleme demek.</p>
+            <label for="size">Corner size</label>
+            <p>How close to the edge counts as the corner. Smaller means fewer accidental triggers.</p>
           </div>
           <div class="row-control">
             <input type="range" id="size" min="2" max="30" step="1">
@@ -86,15 +86,15 @@
         </div>
         <div class="row">
           <div class="row-text">
-            <label for="feedback">Köşede ışık göster</label>
-            <p>Görev çalıştığında köşede kısa bir parıltı belirir.</p>
+            <label for="feedback">Glow in the corner</label>
+            <p>A short flash in the corner shows that the action ran.</p>
           </div>
           <label class="switch small"><input type="checkbox" id="feedback"><span></span></label>
         </div>
         <div class="row">
           <div class="row-text">
-            <label for="ignoreFullscreen">Tam ekran videoda devre dışı</label>
-            <p>Bir sayfa tam ekrana geçtiğinde (video, oyun) köşeler çalışmaz.</p>
+            <label for="ignoreFullscreen">Off in full-screen video</label>
+            <p>Corners rest while a page is in full screen, such as a video or a game.</p>
           </div>
           <label class="switch small"><input type="checkbox" id="ignoreFullscreen"><span></span></label>
         </div>
@@ -103,48 +103,48 @@
 
     <section class="card" aria-labelledby="shortcutTitle">
       <div class="card-head">
-        <h2 id="shortcutTitle">Klavye kısayolları</h2>
+        <h2 id="shortcutTitle">Keyboard shortcuts</h2>
       </div>
       <div class="rows">
         <div class="row">
           <div class="row-text">
-            <span class="label">Hot Corners'ı aç / kapat</span>
-            <p>Her şeyi tek tuşla durdurur; tekrar basınca geri açar.</p>
+            <span class="label">Turn Hot Corners on or off</span>
+            <p>Stops everything with one key; press again to bring it back.</p>
           </div>
           <span class="keys" id="keyToggle"></span>
         </div>
         <div class="row">
           <div class="row-text">
-            <span class="label">Sekme görünümünü aç / kapat</span>
-            <p>Köşeye gitmeden tüm sekmeleri gösterir.</p>
+            <span class="label">Open or close the tab overview</span>
+            <p>Shows every tab without going to a corner.</p>
           </div>
           <span class="keys" id="keyOverview"></span>
         </div>
         <div class="row">
-          <p class="hint">Kısayolları Chrome'un eklenti kısayolları sayfasından değiştirebilir veya kaldırabilirsin.</p>
-          <button class="btn" id="changeShortcut" type="button">Kısayolları değiştir</button>
+          <p class="hint">Change or remove these on Chrome's extension shortcuts page.</p>
+          <button class="btn" id="changeShortcut" type="button">Change shortcuts</button>
         </div>
       </div>
     </section>
 
     <section class="card needs-on" aria-labelledby="sitesTitle">
       <div class="card-head">
-        <h2 id="sitesTitle">Devre dışı siteler</h2>
-        <p>Bu sitelerde köşeler hiç çalışmaz. Araç çubuğundaki ikondan da tek tıkla ekleyebilirsin.</p>
+        <h2 id="sitesTitle">Excluded sites</h2>
+        <p>Corners never fire on these sites. You can also add the current site from the toolbar icon.</p>
       </div>
       <form class="add-site" id="addSite" novalidate>
-        <input class="field" id="siteInput" type="text" placeholder="ornek.com veya https://ornek.com/sayfa"
-               spellcheck="false" autocomplete="off" aria-label="Site adresi">
-        <button class="btn primary" type="submit">Ekle</button>
+        <input class="field" id="siteInput" type="text" placeholder="example.com or https://example.com/page"
+               spellcheck="false" autocomplete="off" aria-label="Site address">
+        <button class="btn primary" type="submit">Add</button>
       </form>
       <p class="error" id="siteError" role="alert" hidden></p>
       <ul class="sites" id="sites"></ul>
-      <p class="empty" id="sitesEmpty">Henüz site eklenmedi.</p>
+      <p class="empty" id="sitesEmpty">No sites excluded yet.</p>
     </section>
 
     <footer class="foot">
       <span id="version"></span>
-      <button class="btn ghost danger" id="reset" type="button">Varsayılanlara dön</button>
+      <button class="btn ghost danger" id="reset" type="button">Reset to defaults</button>
     </footer>
   </main>
   <script src="shared.js"></script>

@@ -114,7 +114,7 @@ async function toggleEnabled() {
   const [settings, pausedUntil] = await Promise.all([HC.load(), HC.loadPause()]);
   const working = settings.enabled && !HC.isPaused(pausedUntil);
   await setEnabled(!working);
-  notifyActiveTab(working ? 'Hot Corners kapatıldı' : 'Hot Corners açıldı');
+  notifyActiveTab(working ? 'Hot Corners is off' : 'Hot Corners is on');
 }
 
 async function toggleSite(tab) {
@@ -126,7 +126,7 @@ async function toggleSite(tab) {
     ? settings.disabledSites.filter((h) => h !== host)
     : [...settings.disabledSites, host].sort();
   await HC.save(settings);
-  notifyActiveTab(off ? host + ' için açıldı' : host + ' için kapatıldı');
+  notifyActiveTab(off ? 'On for ' + host : 'Off for ' + host);
 }
 
 // ---------- right-click menu on the toolbar icon ----------
@@ -134,11 +134,11 @@ async function toggleSite(tab) {
 function buildMenu() {
   chrome.contextMenus.removeAll(() => {
     const add = (id, title) => chrome.contextMenus.create({ id, title, contexts: ['action'] });
-    add('toggle', 'Kapat');
-    add('pause15', '15 dakika duraklat');
-    add('pause60', '1 saat duraklat');
-    add('pauseRestart', 'Chrome yeniden başlayana kadar duraklat');
-    add('site', 'Bu sitede aç / kapat');
+    add('toggle', 'Turn off');
+    add('pause15', 'Pause for 15 minutes');
+    add('pause60', 'Pause for 1 hour');
+    add('pauseRestart', 'Pause until Chrome restarts');
+    add('site', 'Turn on / off for this site');
   });
 }
 
@@ -146,18 +146,18 @@ function updateMenu(settings, pausedUntil) {
   const paused = HC.isPaused(pausedUntil);
   const working = settings.enabled && !paused;
   const set = (id, props) => chrome.contextMenus.update(id, props, () => void chrome.runtime.lastError);
-  set('toggle', { title: working ? 'Kapat' : paused && settings.enabled ? 'Duraklatmayı bitir' : 'Aç' });
+  set('toggle', { title: working ? 'Turn off' : paused && settings.enabled ? 'Resume' : 'Turn on' });
   for (const id of ['pause15', 'pause60', 'pauseRestart']) set(id, { enabled: working });
 }
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   switch (info.menuItemId) {
     case 'toggle': return toggleEnabled();
-    case 'pause15': await setPause(15); return notifyActiveTab('15 dakika duraklatıldı');
-    case 'pause60': await setPause(60); return notifyActiveTab('1 saat duraklatıldı');
+    case 'pause15': await setPause(15); return notifyActiveTab('Paused for 15 minutes');
+    case 'pause60': await setPause(60); return notifyActiveTab('Paused for 1 hour');
     case 'pauseRestart':
       await setPause(HC.PAUSE_UNTIL_RESTART);
-      return notifyActiveTab('Chrome yeniden başlayana kadar duraklatıldı');
+      return notifyActiveTab('Paused until Chrome restarts');
     case 'site': return tab && toggleSite(tab);
   }
 });

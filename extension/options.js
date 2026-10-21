@@ -9,7 +9,7 @@
     const on = store.settings.enabled;
     const paused = on && HC.isPaused(pausedUntil);
     enabled.checked = on;
-    $('#status').textContent = !on ? 'Kapalı' : paused ? HC.pauseLabel(pausedUntil) : 'Açık';
+    $('#status').textContent = !on ? 'Off' : paused ? HC.pauseLabel(pausedUntil) : 'On';
     $('#resume').hidden = !paused;
     document.body.classList.toggle('off', !on || paused);
     document.body.classList.toggle('paused', paused);
@@ -47,7 +47,7 @@
     size.value = s.size;
     feedback.checked = s.feedback;
     ignoreFs.checked = s.ignoreFullscreen;
-    $('#delayOut').textContent = s.delay === 0 ? 'Anında' : s.delay + ' ms';
+    $('#delayOut').textContent = s.delay === 0 ? 'Instant' : s.delay + ' ms';
     $('#sizeOut').textContent = s.size + ' px';
   }
 
@@ -71,7 +71,7 @@
     UI.keysInto($('#keyOverview'), await UI.shortcutText('open-overview'));
     const w = $('#welcomeToggle');
     if (toggle) UI.keysInto(w, toggle);
-    else w.textContent = 'Klavye kısayoluyla';
+    else w.textContent = 'a keyboard shortcut';
   }
   $('#changeShortcut').addEventListener('click', UI.openShortcuts);
   // Coming back from chrome://extensions/shortcuts should show the new keys.
@@ -111,8 +111,8 @@
       const remove = document.createElement('button');
       remove.type = 'button';
       remove.className = 'btn ghost danger';
-      remove.textContent = 'Kaldır';
-      remove.setAttribute('aria-label', host + ' sitesini listeden kaldır');
+      remove.textContent = 'Remove';
+      remove.setAttribute('aria-label', 'Remove ' + host + ' from the list');
       remove.addEventListener('click', () => {
         store.settings.disabledSites = store.settings.disabledSites.filter((h) => h !== host);
         store.save();
@@ -128,7 +128,7 @@
     e.preventDefault();
     const host = toHost(input.value);
     if (!host) {
-      error.textContent = 'Geçerli bir site adresi yaz, örneğin youtube.com';
+      error.textContent = 'Enter a valid site address, for example youtube.com';
       error.hidden = false;
       input.focus();
       return;
@@ -144,9 +144,9 @@
   input.addEventListener('input', () => { error.hidden = true; });
 
   // ---------- footer ----------
-  $('#version').textContent = 'Sürüm ' + chrome.runtime.getManifest().version;
+  $('#version').textContent = 'Version ' + chrome.runtime.getManifest().version;
   $('#reset').addEventListener('click', () => {
-    if (!confirm('Tüm ayarlar varsayılana dönsün mü? Devre dışı site listesi de temizlenir.')) return;
+    if (!confirm('Reset every setting to its default? This also clears the list of excluded sites.')) return;
     store.settings = HC.merge(null);
     store.save();
     renderAll();

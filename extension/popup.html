@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Hot Corners</title>
@@ -12,50 +12,50 @@
       <img src="icons/icon48.png" alt="" width="30" height="30" id="logo">
       <div class="brand">
         <h1>Hot Corners</h1>
-        <p id="status">Açık</p>
+        <p id="status">On</p>
       </div>
-      <label class="switch" title="Hot Corners'ı aç / kapat">
-        <input type="checkbox" id="enabled" aria-label="Hot Corners'ı aç / kapat">
+      <label class="switch" title="Turn Hot Corners on or off">
+        <input type="checkbox" id="enabled" aria-label="Turn Hot Corners on or off">
         <span></span>
       </label>
     </header>
 
     <div class="row-box pause" id="pauseRow">
       <div class="row-text">
-        <strong>Duraklat</strong>
-        <span id="pauseState">Bir süreliğine durdur, sonra kendiliğinden açılsın</span>
+        <strong>Pause</strong>
+        <span id="pauseState">Take a break; it comes back on by itself</span>
       </div>
-      <div class="seg" id="pauseButtons" role="group" aria-label="Duraklatma süresi">
-        <button type="button" data-minutes="15">15 dk</button>
-        <button type="button" data-minutes="60">1 sa</button>
-        <button type="button" data-minutes="-1" title="Chrome yeniden başlayana kadar">Oturum</button>
+      <div class="seg" id="pauseButtons" role="group" aria-label="Pause length">
+        <button type="button" data-minutes="15">15 min</button>
+        <button type="button" data-minutes="60">1 hr</button>
+        <button type="button" data-minutes="-1" title="Until Chrome restarts">Session</button>
       </div>
-      <button class="btn primary" id="resume" type="button" hidden>Devam et</button>
+      <button class="btn primary" id="resume" type="button" hidden>Resume</button>
     </div>
 
     <div class="row-box site needs-on" id="siteRow" hidden>
       <div class="row-text">
         <strong id="siteHost"></strong>
-        <span id="siteState">Bu sitede çalışıyor</span>
+        <span id="siteState">Working on this site</span>
       </div>
       <label class="switch small">
-        <input type="checkbox" id="siteOn" aria-label="Bu sitede çalışsın">
+        <input type="checkbox" id="siteOn" aria-label="Work on this site">
         <span></span>
       </label>
     </div>
 
     <div class="stage">
-      <section class="screen" id="screen" aria-label="Köşe görevleri">
-        <div class="screen-center">Köşeye götür,<br>görev çalışsın</div>
+      <section class="screen" id="screen" aria-label="Corner actions">
+        <div class="screen-center">Rest in a corner,<br>the action runs</div>
       </section>
     </div>
 
     <footer class="foot">
       <dl class="keys">
-        <div><dt>Aç / kapat</dt><dd id="keyToggle"></dd></div>
-        <div><dt>Sekme görünümü</dt><dd id="keyOverview"></dd></div>
+        <div><dt>On / off</dt><dd id="keyToggle"></dd></div>
+        <div><dt>Tab overview</dt><dd id="keyOverview"></dd></div>
       </dl>
-      <button class="btn" id="more" type="button">Tüm ayarlar</button>
+      <button class="btn" id="more" type="button">All settings</button>
     </footer>
   </main>
   <script src="shared.js"></script>

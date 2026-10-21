@@ -165,7 +165,7 @@
     el.animate(frames, { duration: 520, easing: 'ease-out' }).onfinish = () => el.remove();
   }
 
-  // ---------- tab overview (Mission Control) ----------
+  // ---------- tab overview ----------
 
   const CSS = `
     :host { all: initial; }
@@ -296,14 +296,14 @@
       <style>${CSS}</style>
       <div class="backdrop">
         <div class="top">
-          <input class="search" type="text" placeholder="Sekmelerde ara…" spellcheck="false" autocomplete="off">
-          <div class="hint"><kbd>←</kbd><kbd>→</kbd> seç &nbsp; <kbd>Enter</kbd> aç &nbsp; <kbd>Esc</kbd> kapat</div>
+          <input class="search" type="text" placeholder="Search tabs…" spellcheck="false" autocomplete="off">
+          <div class="hint"><kbd>←</kbd><kbd>→</kbd> select &nbsp; <kbd>Enter</kbd> open &nbsp; <kbd>Esc</kbd> close</div>
         </div>
         <div class="scroll"></div>
       </div>`;
     const search = root.querySelector('.search');
     const scroll = root.querySelector('.scroll');
-    const empty = el('div', 'empty', 'Eşleşen sekme yok');
+    const empty = el('div', 'empty', 'No matching tabs');
     empty.hidden = true;
 
     let cards = [];
@@ -316,7 +316,7 @@
       section.append(h2);
       const grid = el('div', 'grid');
       section.append(grid);
-      section._label = multi ? (wi === 0 ? 'Bu pencere' : `Pencere ${wi + 1}`) : '';
+      section._label = multi ? (wi === 0 ? 'This window' : `Window ${wi + 1}`) : '';
       section._h2 = h2;
 
       for (const t of win.tabs) {
@@ -351,14 +351,14 @@
         fav.alt = '';
         fav.src = favicon(t.url);
         fav.onerror = () => { fav.style.visibility = 'hidden'; };
-        meta.append(fav, el('span', 'title', t.title || 'Adsız sekme'));
-        if (t.id === data.currentTabId) meta.append(el('span', 'badge now', 'Şu anki'));
-        else if (t.audible && !t.muted) meta.append(el('span', 'badge', 'Ses'));
-        else if (t.muted) meta.append(el('span', 'badge', 'Sessiz'));
-        else if (t.pinned) meta.append(el('span', 'badge', 'Sabit'));
+        meta.append(fav, el('span', 'title', t.title || 'Untitled tab'));
+        if (t.id === data.currentTabId) meta.append(el('span', 'badge now', 'Current'));
+        else if (t.audible && !t.muted) meta.append(el('span', 'badge', 'Playing'));
+        else if (t.muted) meta.append(el('span', 'badge', 'Muted'));
+        else if (t.pinned) meta.append(el('span', 'badge', 'Pinned'));
 
         const x = el('div', 'x', '×');
-        x.title = 'Sekmeyi kapat';
+        x.title = 'Close tab';
 
         card.append(thumb, meta, x);
         grid.append(card);
@@ -373,7 +373,7 @@
       for (const s of sections) {
         const n = [...s.querySelectorAll('.card')].filter((c) => !c.hidden).length;
         s.hidden = n === 0;
-        s._h2.textContent = (s._label ? s._label + ' · ' : '') + `${n} sekme`;
+        s._h2.textContent = (s._label ? s._label + ' · ' : '') + `${n} ${n === 1 ? 'tab' : 'tabs'}`;
       }
     }
     updateHeaders();
@@ -546,7 +546,7 @@
     }
     const pill = noticeHost._pill;
     noticeHost._text.textContent = text;
-    pill.classList.toggle('off', /kapat|duraklat/i.test(text));
+    pill.classList.toggle('off', /\boff\b|paused/i.test(text));
     if (!noticeHost.isConnected) document.documentElement.appendChild(noticeHost);
     requestAnimationFrame(() => pill.classList.add('show'));
     clearTimeout(noticeTimer);

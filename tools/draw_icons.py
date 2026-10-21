@@ -170,16 +170,20 @@ def promo(W, H, title_px, tag_px, icon_px, path, mock=False):
     else:
         ty = iy + icon_px * k + int(h * 0.07)
     d.text((tx, ty), 'Hot Corners', font=fb, fill=(246, 247, 250))
-    d.text((tx, ty + int(title_px * k * 1.25)), 'Köşeye git, görev çalışsın.', font=fr, fill=(255, 205, 80))
+    d.text((tx, ty + int(title_px * k * 1.25)), 'Every corner, a shortcut.', font=fr, fill=(255, 205, 80))
 
     if mock:
         # a stylised browser window with flames in its corners
         bx0, by0, bx1, by1 = w * 0.48, h * 0.2, w * 0.93, h * 0.82
         d.rounded_rectangle([bx0, by0, bx1, by1], radius=int(h * 0.03), fill=(28, 31, 42), outline=(70, 76, 92), width=k * 2)
         d.rounded_rectangle([bx0, by0, bx1, by0 + h * 0.08], radius=int(h * 0.03), fill=(40, 44, 58))
-        for i, c in enumerate([(255, 95, 87), (254, 188, 46), (40, 200, 64)]):
-            cx = bx0 + h * 0.04 + i * h * 0.035
-            d.ellipse([cx - h * 0.011, by0 + h * 0.029, cx + h * 0.011, by0 + h * 0.051], fill=c)
+        # a neutral tab strip: one active tab and two quiet ones
+        for i in range(3):
+            tx0 = bx0 + h * 0.03 + i * h * 0.17
+            fill = (58, 63, 80) if i == 0 else (48, 52, 67)
+            d.rounded_rectangle([tx0, by0 + h * 0.022, tx0 + h * 0.15, by0 + h * 0.08], radius=int(h * 0.012), fill=fill)
+            d.rounded_rectangle([tx0 + h * 0.025, by0 + h * 0.045, tx0 + h * 0.11, by0 + h * 0.056], radius=k * 2,
+                                fill=(120, 127, 145) if i == 0 else (88, 94, 110))
         gx0, gy0 = bx0 + h * 0.05, by0 + h * 0.13
         cols, rows = 3, 2
         gw = (bx1 - h * 0.05 - gx0 - (cols - 1) * h * 0.03) / cols
@@ -190,7 +194,7 @@ def promo(W, H, title_px, tag_px, icon_px, path, mock=False):
                 y = gy0 + r * (gh + h * 0.03)
                 sel = (r, c) == (0, 1)
                 d.rounded_rectangle([x, y, x + gw, y + gh], radius=int(h * 0.015),
-                                    fill=(46, 51, 66), outline=(91, 147, 255) if sel else (60, 66, 82),
+                                    fill=(46, 51, 66), outline=(255, 176, 32) if sel else (60, 66, 82),
                                     width=k * (3 if sel else 1))
                 d.rounded_rectangle([x + gw * 0.08, y + gh * 0.78, x + gw * 0.7, y + gh * 0.86],
                                     radius=k * 3, fill=(90, 97, 115))

@@ -2,47 +2,47 @@
 // Assigned to globalThis (not const) so a second injection doesn't throw.
 globalThis.HC = {
   ACTIONS: [
-    { group: 'Genel', items: [
-      ['none', 'Hiçbir şey'],
-      ['tabOverview', 'Sekme görünümü (Mission Control)'],
+    { group: 'General', items: [
+      ['none', 'Do nothing'],
+      ['tabOverview', 'Tab overview'],
     ] },
-    { group: 'Sekmeler', items: [
-      ['lastTab', 'Son kullanılan sekmeye geç'],
-      ['nextTab', 'Sonraki sekme'],
-      ['prevTab', 'Önceki sekme'],
-      ['newTab', 'Yeni sekme'],
-      ['closeTab', 'Sekmeyi kapat'],
-      ['reopenClosed', 'Kapatılan sekmeyi geri aç'],
-      ['duplicateTab', 'Sekmeyi çoğalt'],
-      ['pinTab', 'Sekmeyi sabitle / çöz'],
-      ['muteTab', 'Sesi kapat / aç'],
+    { group: 'Tabs', items: [
+      ['lastTab', 'Last used tab'],
+      ['nextTab', 'Next tab'],
+      ['prevTab', 'Previous tab'],
+      ['newTab', 'New tab'],
+      ['closeTab', 'Close tab'],
+      ['reopenClosed', 'Reopen closed tab'],
+      ['duplicateTab', 'Duplicate tab'],
+      ['pinTab', 'Pin / unpin tab'],
+      ['muteTab', 'Mute / unmute tab'],
     ] },
-    { group: 'Sayfa', items: [
-      ['goBack', 'Geri'],
-      ['goForward', 'İleri'],
-      ['reload', 'Yenile'],
-      ['scrollTop', 'En üste kaydır'],
-      ['scrollBottom', 'En alta kaydır'],
+    { group: 'Page', items: [
+      ['goBack', 'Back'],
+      ['goForward', 'Forward'],
+      ['reload', 'Reload'],
+      ['scrollTop', 'Scroll to top'],
+      ['scrollBottom', 'Scroll to bottom'],
     ] },
-    { group: 'Pencere', items: [
-      ['newWindow', 'Yeni pencere'],
-      ['minimizeWindow', 'Pencereyi küçült'],
-      ['toggleFullscreen', 'Tam ekran aç / kapat'],
+    { group: 'Window', items: [
+      ['newWindow', 'New window'],
+      ['minimizeWindow', 'Minimize window'],
+      ['toggleFullscreen', 'Toggle full screen'],
     ] },
-    { group: 'Özel', items: [
-      ['openUrl', 'Adres aç…'],
+    { group: 'Custom', items: [
+      ['openUrl', 'Open a web address…'],
     ] },
   ],
 
-  // Key that must be held for a corner to fire, like macOS's modifier option.
+  // Key that must be held for a corner to fire.
   MODIFIERS: [
-    ['none', 'Tuş yok'],
-    ['shift', 'Shift basılıyken'],
-    ['ctrl', 'Ctrl basılıyken'],
-    ['alt', 'Alt basılıyken'],
+    ['none', 'No key needed'],
+    ['shift', 'While holding Shift'],
+    ['ctrl', 'While holding Ctrl'],
+    ['alt', 'While holding Alt'],
   ],
 
-  CORNER_NAMES: { tl: 'Sol üst', tr: 'Sağ üst', bl: 'Sol alt', br: 'Sağ alt' },
+  CORNER_NAMES: { tl: 'Top left', tr: 'Top right', bl: 'Bottom left', br: 'Bottom right' },
 
   DEFAULTS: {
     enabled: true,
@@ -109,8 +109,8 @@ globalThis.HC = {
   },
 
   pauseLabel(until) {
-    if (until === -1) return 'Chrome yeniden başlayana kadar duraklatıldı';
-    const t = new Date(until).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
-    return 'Duraklatıldı · bitiş ' + t;
+    if (until === -1) return 'Paused until Chrome restarts';
+    const t = new Date(until).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return 'Paused until ' + t;
   },
 };

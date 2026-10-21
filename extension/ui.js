@@ -53,7 +53,7 @@ globalThis.UI = (() => {
         toast = document.createElement('div');
         toast.className = 'toast';
         toast.setAttribute('role', 'status');
-        toast.textContent = 'Kaydedildi';
+        toast.textContent = 'Saved';
         document.body.append(toast);
       }
       toast.classList.add('show');
@@ -110,18 +110,18 @@ globalThis.UI = (() => {
     for (const key of ['tl', 'tr', 'bl', 'br']) {
       const box = document.createElement('div');
       box.className = 'corner ' + key;
-      const name = HC.CORNER_NAMES[key] + ' köşe';
+      const name = HC.CORNER_NAMES[key] + ' corner';
 
       const action = document.createElement('select');
-      action.setAttribute('aria-label', name + ' görevi');
+      action.setAttribute('aria-label', name + ' action');
       fillActions(action);
 
       const url = document.createElement('input');
       url.type = 'text';
       url.className = 'field';
-      url.placeholder = 'ornek.com';
+      url.placeholder = 'example.com';
       url.spellcheck = false;
-      url.setAttribute('aria-label', name + ' adresi');
+      url.setAttribute('aria-label', name + ' web address');
 
       const items = [];
       if (full) {
@@ -136,7 +136,7 @@ globalThis.UI = (() => {
       let chip = null;
       if (full) {
         modifier = document.createElement('select');
-        modifier.setAttribute('aria-label', name + ' için basılı tutulacak tuş');
+        modifier.setAttribute('aria-label', name + ' key to hold');
         for (const [v, l] of HC.MODIFIERS) modifier.append(new Option(l, v));
         items.push(modifier);
       } else {
@@ -184,7 +184,7 @@ globalThis.UI = (() => {
         if (p.chip) {
           const m = c.modifier && c.modifier !== 'none' && active;
           p.chip.hidden = !m;
-          if (m) p.chip.textContent = { shift: 'Shift', ctrl: 'Ctrl', alt: 'Alt' }[c.modifier] + ' ile';
+          if (m) p.chip.textContent = 'Hold ' + { shift: 'Shift', ctrl: 'Ctrl', alt: 'Alt' }[c.modifier];
         }
       }
     }
@@ -220,7 +220,7 @@ globalThis.UI = (() => {
   // "Ctrl+Shift+H" -> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd>
   function keysInto(el, keys) {
     el.replaceChildren();
-    if (!keys) { el.textContent = 'Atanmamış'; return; }
+    if (!keys) { el.textContent = 'Not set'; return; }
     keys.split('+').forEach((k, i) => {
       if (i) el.append('+');
       const kbd = document.createElement('kbd');

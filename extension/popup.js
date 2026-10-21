@@ -13,7 +13,7 @@
     const on = store.settings.enabled;
     const paused = on && HC.isPaused(pausedUntil);
     enabled.checked = on;
-    status.textContent = !on ? 'Kapalı' : paused ? 'Duraklatıldı' : 'Açık';
+    status.textContent = !on ? 'Off' : paused ? 'Paused' : 'On';
     document.body.classList.toggle('off', !on || paused);
     document.body.classList.toggle('disabled', !on);
 
@@ -23,7 +23,7 @@
     for (const b of pauseButtons.querySelectorAll('button')) b.disabled = !on;
     $('#pauseState').textContent = paused
       ? HC.pauseLabel(pausedUntil)
-      : 'Bir süreliğine durdur, sonra kendiliğinden açılsın';
+      : 'Take a break; it comes back on by itself';
   }
 
   UI.bindSwitch(enabled, store, renderState);
@@ -56,7 +56,7 @@
       renderSite = () => {
         const on = !store.settings.disabledSites.includes(host);
         siteOn.checked = on;
-        $('#siteState').textContent = on ? 'Bu sitede çalışıyor' : 'Bu sitede kapalı';
+        $('#siteState').textContent = on ? 'Working on this site' : 'Off on this site';
       };
       siteOn.addEventListener('change', () => {
         const list = store.settings.disabledSites.filter((h) => h !== host);

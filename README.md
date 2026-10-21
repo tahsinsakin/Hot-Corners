@@ -1,55 +1,55 @@
 # Hot Corners
 
-macOS'teki Etkin Köşeler (Hot Corners) özelliğini Chrome'a getiren eklenti. Fareyi sayfanın dört köşesinden birine götürünce o köşeye atanmış görev çalışır.
+**Every corner, a shortcut.** Hot Corners is a Chrome extension that turns the four corners of every web page into shortcuts. Rest the pointer in a corner and the action you picked for it runs.
 
 ![Hot Corners](store/promo-marquee-1400x560.png)
 
-## Özellikler
+## Features
 
-- **Sekme görünümü:** Tüm pencerelerdeki sekmeler önizlemeleriyle ızgara halinde gösterilir; yazarak arama, ok tuşları ve Enter ile geçiş yapılır.
-- **20 civarı görev:** son kullanılan sekme, sonraki/önceki sekme, yeni sekme, sekmeyi kapat, kapatılanı geri aç, çoğalt, sabitle, sesi kapat, geri, ileri, yenile, en üste/alta kaydır, yeni pencere, küçült, tam ekran, adres aç.
-- **Tuş şartı:** Bir köşe yalnızca Shift, Ctrl veya Alt basılıyken çalışacak şekilde ayarlanabilir.
-- **Hızlı kontrol:** `Ctrl+Shift+H` ile tamamen kapat/aç; 15 dk, 1 saat veya Chrome kapanana kadar duraklat; site bazında kapat. Araç çubuğu simgesi durumu gösterir (gri + `OFF`, `II`, `–`).
-- **Ayarlar:** bekleme süresi, köşe alanı, köşede ışık efekti, tam ekran videoda devre dışı kalma.
-- Açık ve koyu tema, Türkçe arayüz.
+- **Tab overview:** every tab from every window as a grid of live previews. Type to filter, use the arrow keys and Enter to jump.
+- **About 20 corner actions:** last used tab, next/previous tab, new tab, close, reopen closed, duplicate, pin, mute, back, forward, reload, scroll to top/bottom, new window, minimize, full screen, open a web address.
+- **Hold-a-key corners:** a corner can require Shift, Ctrl or Alt, so stray pointer moves do nothing.
+- **Quick control:** `Ctrl+Shift+H` turns everything off or on; pause for 15 min, 1 hour or until Chrome restarts; exclude sites. The toolbar icon shows the state (grey + `OFF`, `II` for paused, `–` for an excluded site).
+- **Settings:** delay, corner size, corner glow, rest during full-screen video.
+- Light and dark theme.
 
-## Klasörler
+## Repository layout
 
-| Klasör | İçerik |
+| Folder | Contents |
 |---|---|
-| `extension/` | Eklentinin kendisi (Manifest V3). Mağazaya yüklenen zip bu klasörden oluşur. |
-| `store/` | Mağaza görselleri, mağaza metinleri (`MAGAZA-METINLERI.md`) ve gizlilik politikası sayfası. |
-| `tools/` | İkon/görsel üretici, paketleme betiği ve mantık testleri. |
+| `extension/` | The extension itself (Manifest V3). The store zip is built from this folder. |
+| `store/` | Store images, listing text (`STORE-LISTING.md`) and the privacy policy page. |
+| `tools/` | Icon and image generator, packaging script and logic tests. |
 
-## Geliştirme
+## Development
 
-**Yerelde denemek:** `chrome://extensions` → Geliştirici modu → **Paketlenmemiş öğe yükle** → `extension` klasörünü seç. Kod değişince eklenti kartındaki yenile simgesine bas, açık sekmeleri de yenile.
+**Try it locally:** open `chrome://extensions`, turn on Developer mode, choose **Load unpacked** and select the `extension` folder. After a code change, press the reload icon on the extension card and reload open tabs.
 
-**Testler** (Node 18+, ek paket gerekmez; Chrome API'leri sahte nesnelerle taklit edilir):
+**Tests** (Node 18+, no dependencies; Chrome APIs are stubbed):
 
 ```bash
-node tools/test-corners.js      # köşe algılama, tuş şartı, bekleme süresi, tam ekran
-node tools/test-background.js   # aç/kapat, duraklatma, simge durumu, sağ tık menüsü
+node tools/test-corners.js      # corner detection, hold-a-key, delay, full screen
+node tools/test-background.js   # on/off, pause, toolbar icon state, right-click menu
 ```
 
-**İkonları ve mağaza görsellerini yeniden çizmek** (Python 3, Pillow, NumPy):
+**Redraw the icons and store images** (Python 3 with Pillow and NumPy):
 
 ```bash
 python3 tools/draw_icons.py
 ```
 
-**Mağaza paketi:**
+**Build the store package:**
 
 ```bash
-./tools/package.sh   # dist/hot-corners-<sürüm>.zip
+./tools/package.sh   # dist/hot-corners-<version>.zip
 ```
 
-Her yayında `extension/manifest.json` içindeki `version` değerini artır.
+Raise `version` in `extension/manifest.json` for every release.
 
-## Mimari kısaca
+## How it works
 
-- `content.js` her sayfada çalışır: imlecin köşede olup olmadığını izler, sekme görünümünü (Shadow DOM içinde) çizer, bildirimleri gösterir.
-- `background.js` sekme/pencere işlemlerini yapar, önizleme görüntülerini alır, kısayolları, duraklatmayı, simge durumunu ve sağ tık menüsünü yönetir.
-- `shared.js` görev listesi, varsayılan ayarlar ve ayar okuma/yazma yardımcıları.
-- `popup.*` araç çubuğundaki hızlı ayar penceresi, `options.*` tam ayarlar sayfası, `ui.*` ikisinin ortak parçaları.
-- Ayarlar `chrome.storage.sync`, duraklatma durumu `chrome.storage.local`, önizlemeler `chrome.storage.session` içinde tutulur. Eklenti hiçbir sunucuya veri göndermez.
+- `content.js` runs on each page: watches whether the pointer is in a corner, draws the tab overview (inside a Shadow DOM) and shows status notices.
+- `background.js` performs tab and window actions, captures previews, and handles shortcuts, pausing, the toolbar icon state and the right-click menu.
+- `shared.js` holds the action list, default settings and settings helpers.
+- `popup.*` is the toolbar popup, `options.*` the full settings page, `ui.*` the parts they share.
+- Settings live in `chrome.storage.sync`, the pause state in `chrome.storage.local`, previews in `chrome.storage.session`. Nothing is sent to any server.
